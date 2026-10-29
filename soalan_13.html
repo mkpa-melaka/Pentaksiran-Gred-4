@@ -25,6 +25,7 @@ html,body{margin:0;padding:0;background:#fff;font-family:Arial,Helvetica,sans-se
 .chip{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:46px;min-height:42px;padding:6px 12px;background:var(--chip);border:2px solid var(--chip-b);border-radius:9px;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none;font-weight:700;font-size:18px;color:var(--ink);box-shadow:0 2px 0 rgba(0,0,0,.08);font-family:Arial,Helvetica,sans-serif}
 .chip:hover{border-color:#b8861b}
 .chip.locked{cursor:default;background:#e9eef2;border-color:#9aa8b3}
+.chip-ph{flex:none;border:2px dashed #d9cfa8;border-radius:9px;background:rgba(255,246,220,.45)}
 .chip.dragging{position:fixed;z-index:1000;pointer-events:none;cursor:grabbing;box-shadow:0 10px 24px rgba(0,0,0,.28);margin:0;transform:scale(1.04)}
 .drop{min-height:54px;min-width:86px;border:2px dashed var(--drop-b);border-radius:10px;background:var(--drop);display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center;padding:6px;transition:background .15s,border-color .15s}
 .drop.hover{background:#d6eef4;border-color:var(--accent);border-style:solid}
@@ -59,6 +60,7 @@ table.data{border-collapse:collapse;font-size:15px}
 table.data th,table.data td{border:1px solid #9aa6b2;padding:6px 10px;text-align:center}
 table.data th{background:#eef3f6}
 svg text{font-family:Arial,Helvetica,sans-serif}
+.interactive-left svg{-webkit-user-select:none;user-select:none}
 .readout{font-size:15px;background:#fff8e6;border:1px solid #edd38a;border-radius:8px;padding:6px 10px;display:inline-flex;gap:10px;align-items:center}
 .readout .val{font-size:22px;font-weight:700;color:var(--accent)}
 .choice{border:2px solid var(--line);background:#fff;border-radius:10px;padding:8px 16px;cursor:pointer;font-family:inherit;font-size:16px;display:inline-flex;flex-direction:column;align-items:center;line-height:1.15}
@@ -67,6 +69,7 @@ svg text{font-family:Arial,Helvetica,sans-serif}
 input[type=range]{width:100%;accent-color:var(--accent);height:28px;cursor:pointer}
 .panel{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fcfdfe}
 .panel-h{font-size:14px;margin-bottom:6px}
+
 
 .t13{width:100%}.t13 td{font-size:18px}.hl{cursor:pointer}.hl.on td,.hl.on th{background:#fff1b8}
 </style>
@@ -101,6 +104,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:28px;cursor:point
     </div>
   </div>
 </div>
+<script>window.I18N={mono:false,tt:{ok:['Betul! Syabas!','Correct! Well done!','✔'],bad:['Belum tepat. Cuba lagi.','Not quite right. Try again.','✖'],empty:['Jawapan belum lengkap.','Your answer is not complete yet.','!']},empty:['Sila lengkapkan semua ruang jawapan dahulu.','Please complete all answer spaces first.']};</script>
 <script>
 (function(){
 const R=document.getElementById('timss');
@@ -121,13 +125,14 @@ R.addEventListener('pointerdown',e=>{
   e.preventDefault();
   const r=c.getBoundingClientRect();let el=c;
   if(c.dataset.clone==='1'){el=c.cloneNode(true);el.dataset.clone='0';el.dataset.temp='1';el.removeAttribute('id');}
-  D={el,dx:e.clientX-r.left,dy:e.clientY-r.top};
+  let ph=null;if(el===c){ph=document.createElement('div');ph.className='chip-ph';ph.style.width=r.width+'px';ph.style.height=r.height+'px';c.parentNode.insertBefore(ph,c);}
+  D={el,ph,dx:e.clientX-r.left,dy:e.clientY-r.top};
   el.style.width=r.width+'px';el.classList.add('dragging');document.body.appendChild(el);mv(e);
 });
 function mv(e){if(!D)return;D.el.style.left=(e.clientX-D.dx)+'px';D.el.style.top=(e.clientY-D.dy)+'px';clearHover();const z=zoneAt(e.clientX,e.clientY);if(z&&z.classList.contains('drop'))z.classList.add('hover');}
 window.addEventListener('pointermove',mv);
-window.addEventListener('pointerup',e=>{if(!D)return;const el=D.el;D=null;clearHover();const z=zoneAt(e.clientX,e.clientY);if(z&&z.classList.contains('drop')&&R.contains(z))place(el,z);else home(el);changed();});
-window.addEventListener('pointercancel',()=>{if(!D)return;const el=D.el;D=null;clearHover();home(el);changed();});
+window.addEventListener('pointerup',e=>{if(!D)return;const el=D.el;const z=zoneAt(e.clientX,e.clientY);if(D.ph)D.ph.remove();D=null;clearHover();if(z&&z.classList.contains('drop')&&R.contains(z))place(el,z);else home(el);changed();});
+window.addEventListener('pointercancel',()=>{if(!D)return;const el=D.el;if(D.ph)D.ph.remove();D=null;clearHover();home(el);changed();});
 window.Q={R,
   vals:s=>{const z=R.querySelector(s);return z?[...z.children].filter(c=>c.classList.contains('chip')).map(c=>c.dataset.val):[];},
   place:(val,s)=>{const src=[...R.querySelectorAll('.chip')].find(c=>c.dataset.val===val&&!c.classList.contains('locked')&&(c.dataset.clone==='1'||!c.closest('.drop')));if(!src)return;let el=src;if(src.dataset.clone==='1'){el=src.cloneNode(true);el.dataset.clone='0';el.dataset.temp='1';el.removeAttribute('id');}place(el,R.querySelector(s));changed();},
@@ -135,12 +140,13 @@ window.Q={R,
   changed
 };
 const M=document.getElementById('modal');
-const TT={ok:['Betul! Syabas!','Correct! Well done!','✔'],bad:['Belum tepat. Cuba lagi.','Not quite right. Try again.','✖'],empty:['Jawapan belum lengkap.','Your answer is not complete yet.','!']};
+const I=window.I18N,TT=I.tt;
 function show(r){r=r||{state:'empty'};const t=TT[r.state];M.className='modal '+r.state;
   M.querySelector('.m-icon').textContent=t[2];
-  M.querySelector('.m-title').innerHTML='<span class="ms">'+t[0]+'</span><span class="en">'+t[1]+'</span>';
-  let ms=r.ms,en=r.en;if(!ms&&r.state==='empty'){ms='Sila lengkapkan semua ruang jawapan dahulu.';en='Please complete all answer spaces first.';}
-  M.querySelector('.m-body').innerHTML=ms?'<span class="ms">'+ms+'</span><span class="en">'+en+'</span>':'';
+  const sp=(a,b)=>'<span class="ms">'+a+'</span>'+(b&&!I.mono?'<span class="en">'+b+'</span>':'');
+  M.querySelector('.m-title').innerHTML=sp(t[0],t[1]);
+  let ms=r.ms,en=r.en;if(!ms&&r.state==='empty'){ms=I.empty[0];en=I.empty[1];}
+  M.querySelector('.m-body').innerHTML=ms?sp(ms,en):'';
   M.hidden=false;M.querySelector('.m-close').focus();}
 window.Q.show=show;
 document.getElementById('btnCheck').addEventListener('click',()=>{const r=window.qCheck?window.qCheck():{state:'empty'};if(r.state==='ok'&&window.qOnCorrect)window.qOnCorrect();if(r.state!=='ok'&&window.qOnWrong)window.qOnWrong();show(r);});
