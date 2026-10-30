@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ms"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Program JOM F.I.K.I.R</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#eef3f6;font-family:Arial,Helvetica,sans-serif;color:#1d2433}
+.w{max-width:960px;margin:0 auto;padding:24px 16px 40px;display:flex;flex-direction:column;gap:18px}
+.hd{background:#0f5c6e;color:#fff;border-radius:16px;padding:22px 22px 20px}
+.eb{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.85;font-weight:700}
+h1{margin:6px 0 2px;font-size:clamp(26px,5vw,38px);line-height:1.1}
+.h2{margin:0;font-size:17px;font-weight:700}.h2 i{display:block;font-weight:400;opacity:.85;font-size:14px;margin-top:2px}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+@media (max-width:700px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.s{background:#fff;border:1px solid #d5dae3;border-radius:12px;padding:10px;display:flex;gap:10px;align-items:center}
+.L{flex:none;width:38px;height:38px;border-radius:10px;background:#f2b705;color:#1d2433;font-weight:700;font-size:22px;display:flex;align-items:center;justify-content:center}
+.sec{margin:4px 0 -6px;font-size:15px}.sec i{color:#566074;font-weight:400}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.it{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid #d5dae3;border-radius:12px;padding:12px 14px;text-decoration:none;color:inherit}
+.it:hover{border-color:#0f5c6e;box-shadow:0 0 0 2px #e3f1f4}.it:focus-visible{outline:3px solid #f2b705;outline-offset:2px}
+.n{font-size:24px;font-weight:700;color:#0f5c6e;min-width:36px}.t{display:flex;flex-direction:column}.t i{color:#566074;font-size:13px}
+.dw{margin-top:14px;display:inline-flex;align-items:center;gap:12px;background:#fff;color:#1d2433;border-radius:12px;padding:8px 14px 8px 8px;border-left:6px solid #f2b705}
+.ic{background:#f2b705;color:#1d2433;font-weight:700;font-size:13px;letter-spacing:.04em;border-radius:8px;padding:6px 9px;white-space:nowrap}
+.dt{display:flex;flex-direction:column}.dt i{color:#566074;font-size:13px}
+.lang{background:#fff;border:1px solid #d5dae3;border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.lang-h{font-size:15px}.lang-h i{color:#566074}
+.lang-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:640px){.lang-row{grid-template-columns:1fr}}
+.lb{display:flex;align-items:center;gap:12px;border:2px solid #d5dae3;border-radius:12px;padding:10px 12px;text-decoration:none;color:#1d2433;background:#fafcfd}
+.lb:hover{border-color:#0f5c6e;background:#e3f1f4}.lb:focus-visible{outline:3px solid #f2b705;outline-offset:2px}
+.lb.on{border-color:#0f5c6e;background:#e3f1f4}
+.lk{background:#0f5c6e;color:#fff;font-weight:700;font-size:13px;border-radius:8px;padding:6px 9px;white-space:nowrap}
+.lt{display:flex;flex-direction:column;line-height:1.25}.lt b{font-size:16px;font-family:Arial,"Noto Sans SC","Microsoft YaHei","Noto Sans Tamil","Nirmala UI","Latha",sans-serif}.lt i{color:#566074;font-size:13px}
+.ft{text-align:center;font-size:12px;color:#566074}
+</style></head><body><div class="w">
+<header class="hd">
+  <div class="eb">Jabatan Pendidikan Negeri Melaka</div>
+  <h1>Program JOM F.I.K.I.R</h1>
+  <p class="h2">Sekolah Rendah Negeri Melaka<i>Melaka State Primary Schools</i></p>
+  <div class="dw"><span class="ic">BM | BI</span><span class="dt"><b>Naskah Dwibahasa: Bahasa Melayu &amp; Bahasa Inggeris</b><i>Bilingual Set: Malay &amp; English</i></span></div>
+</header>
+<nav class="lang" aria-label="Pilih versi bahasa / Choose a language version">
+  <div class="lang-h"><b>Pilih versi bahasa</b> <i>/ Choose a language version</i></div>
+  <div class="lang-row">
+    <a class="lb on" href="./" aria-current="page"><span class="lk">BM | BI</span><span class="lt"><b>Dwibahasa</b><i>Bilingual</i></span></a>
+    <a class="lb" href="JOM_FIKIR_Versi_BC/bc/" lang="zh-Hans"><span class="lk">BC</span><span class="lt"><b>华文版</b><i>Bahasa Cina</i></span></a>
+    <a class="lb" href="JOM_FIKIR_Versi_BT/bt/" lang="ta"><span class="lk">BT</span><span class="lt"><b>தமிழ்ப் பதிப்பு</b><i>Bahasa Tamil</i></span></a>
+  </div>
+</nav>
+<div class="sec"><b>Pilih soalan untuk mula menjawab</b> <i>/ Choose a question to start answering</i></div>
+<div class="g"><a class="it" href="soalan_01.html"><span class="n">01</span><span class="t"><b>Nombor Bulat: Nilai Tempat</b><i>Whole Numbers: Place Value</i></span></a><a class="it" href="soalan_02.html"><span class="n">02</span><span class="t"><b>Nombor Bulat: Pembundaran</b><i>Whole Numbers: Rounding</i></span></a><a class="it" href="soalan_03.html"><span class="n">03</span><span class="t"><b>Pembahagian: Penyelesaian Masalah</b><i>Division: Problem Solving</i></span></a><a class="it" href="soalan_04.html"><span class="n">04</span><span class="t"><b>Pecahan: Penambahan</b><i>Fractions: Addition</i></span></a><a class="it" href="soalan_05.html"><span class="n">05</span><span class="t"><b>Pembahagian & Nombor Ganjil: Penaakulan</b><i>Division & Odd Numbers: Reasoning</i></span></a><a class="it" href="soalan_06.html"><span class="n">06</span><span class="t"><b>Penambahan: Penaakulan</b><i>Addition: Reasoning</i></span></a><a class="it" href="soalan_07.html"><span class="n">07</span><span class="t"><b>Geometri: Jenis Sudut</b><i>Geometry: Types of Angles</i></span></a><a class="it" href="soalan_08.html"><span class="n">08</span><span class="t"><b>Geometri: Sifat Bentuk 2D dan Perimeter</b><i>Geometry: Properties of 2D Shapes and Perimeter</i></span></a><a class="it" href="soalan_09.html"><span class="n">09</span><span class="t"><b>Geometri: Muka Bentuk 3D</b><i>Geometry: Faces of 3D Shapes</i></span></a><a class="it" href="soalan_10.html"><span class="n">10</span><span class="t"><b>Pengukuran: Panjang</b><i>Measurement: Length</i></span></a><a class="it" href="soalan_11.html"><span class="n">11</span><span class="t"><b>Pengukuran: Jisim (Penaakulan dengan Penimbang)</b><i>Measurement: Mass (Reasoning with Balances)</i></span></a><a class="it" href="soalan_12.html"><span class="n">12</span><span class="t"><b>Geometri: Bentangan Bentuk 3D</b><i>Geometry: Nets of 3D Shapes</i></span></a><a class="it" href="soalan_13.html"><span class="n">13</span><span class="t"><b>Data: Membaca dan Membandingkan Jadual</b><i>Data: Reading and Comparing Tables</i></span></a><a class="it" href="soalan_14.html"><span class="n">14</span><span class="t"><b>Data: Piktograf</b><i>Data: Pictographs</i></span></a><a class="it" href="soalan_15.html"><span class="n">15</span><span class="t"><b>Data: Membina Graf Bar (Skala)</b><i>Data: Drawing a Bar Graph (Scale)</i></span></a><a class="it" href="soalan_16.html"><span class="n">16</span><span class="t"><b>Data: Carta Pai</b><i>Data: Pie Charts</i></span></a><a class="it" href="soalan_17.html"><span class="n">17</span><span class="t"><b>Data: Mentafsir Graf dengan Skala Berbeza</b><i>Data: Interpreting Graphs with Different Scales</i></span></a></div>
+<div class="ft"><b>Matematik · 17 soalan interaktif</b><br><i>Mathematics · 17 interactive questions</i></div>
+</div></body></html>
