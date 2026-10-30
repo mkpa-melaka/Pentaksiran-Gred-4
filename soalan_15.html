@@ -110,7 +110,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:28px;cursor:point
     </div>
   </div>
 </div>
-<script>window.I18N={mono:false,tt:{ok:['Betul! Syabas!','Correct! Well done!','✔'],bad:['Belum tepat. Cuba lagi.','Not quite right. Try again.','✖'],empty:['Jawapan belum lengkap.','Your answer is not complete yet.','!']},empty:['Sila lengkapkan semua ruang jawapan dahulu.','Please complete all answer spaces first.']};</script>
+<script>window.I18N={mono:false,tt:{ok:['Betul! Syabas!','Correct! Well done!','✔'],bad:['Belum tepat. Cuba lagi.','Not quite right. Try again.','✖'],empty:['Jawapan belum lengkap.','Your answer is not complete yet.','!']},empty:['Sila lengkapkan semua ruang jawapan dahulu.','Please complete all answer spaces first.']};window.QN=15;</script>
 <script>
 (function(){
 const R=document.getElementById('timss');
@@ -156,7 +156,8 @@ function show(r){r=r||{state:'empty'};const t=TT[r.state];M.className='modal '+r
   M.hidden=false;M.querySelector('.m-close').focus();}
 window.Q.show=show;
 (function(){const h=location.hostname||'';if(location.protocol==='about:'||location.protocol==='data:'||/googleusercontent\.com$|sites\.google\.com$|claudeusercontent|claude\.ai$/.test(h)){const n=document.getElementById('btnNext');if(n)n.hidden=true;}})();
-document.getElementById('btnCheck').addEventListener('click',()=>{const r=window.qCheck?window.qCheck():{state:'empty'};if(r.state==='ok'&&window.qOnCorrect)window.qOnCorrect();if(r.state!=='ok'&&window.qOnWrong)window.qOnWrong();show(r);});
+function markDone(){try{const k='jomfikir_done_'+(document.documentElement.lang||'x');const a=JSON.parse(localStorage.getItem(k)||'[]');if(window.QN&&!a.includes(window.QN)){a.push(window.QN);localStorage.setItem(k,JSON.stringify(a));}}catch(e){}}
+document.getElementById('btnCheck').addEventListener('click',()=>{const r=window.qCheck?window.qCheck():{state:'empty'};if(r&&r.state!=='empty')markDone();if(r.state==='ok'&&window.qOnCorrect)window.qOnCorrect();if(r.state!=='ok'&&window.qOnWrong)window.qOnWrong();show(r);});
 document.getElementById('btnReset').addEventListener('click',()=>{Q.reset();if(window.qReset)window.qReset();changed();});
 M.querySelector('.m-close').addEventListener('click',()=>{M.hidden=true;});
 M.addEventListener('click',e=>{if(e.target===M)M.hidden=true;});
