@@ -74,14 +74,13 @@ input[type=range]{width:100%;accent-color:var(--accent);height:28px;cursor:point
 .panel-h{font-size:14px;margin-bottom:6px}
 
 
-html,body,.chip,.btn,.choice{font-family:"Noto Sans Tamil","Nirmala UI","Latha","Tamil Sangam MN","Tamil MN",Arial,sans-serif}
+html,body,.chip,.btn,.choice{font-family:"Noto Sans Tamil","Nirmala UI","Latha","Tamil Sangam MN",Arial,sans-serif}
 svg text{font-family:"Noto Sans Tamil","Nirmala UI","Latha","Tamil Sangam MN",Arial,sans-serif}
-.bi .ms{font-weight:400;line-height:1.75}
-.bi.qtext .ms{font-size:1.02em}
+.bi .ms{font-weight:400}
+.bi.qtext .ms{font-size:1.08em;line-height:1.65}
 .topic .ms{font-weight:700}
-.bl{line-height:1.35}
-.btn{padding:10px 18px;font-size:15px}
-.key{flex:0 1 230px}.key div{white-space:nowrap}.pt-l{width:92px}
+.bi.instr .ms{line-height:1.6}
+.btn{padding:10px 20px;font-size:16px}
 
 
 .bals{display:flex;flex-direction:column;gap:10px;align-items:center}
@@ -104,7 +103,7 @@ svg text{font-family:"Noto Sans Tamil","Nirmala UI","Latha","Tamil Sangam MN",Ar
 
     <div class="bals"><div class="bal" ><div class="arm"><div class="pan"><span class="wt">1 kg</span><span class="wt">2 kg</span></div><div class="pan"><span class="emo">🍍</span></div></div><div class="fulc"></div></div><div class="bal" ><div class="arm"><div class="pan"><span class="emo">🍍</span><span class="wt">2 kg</span></div><div class="pan"><span class="wt big"></span></div></div><div class="fulc"></div></div><div class="bal" ><div class="arm"><div class="pan"><span class="wt big"></span><span class="wt">1 kg</span></div><div class="pan"><span class="emo big">🍉</span></div></div><div class="fulc"></div></div></div>
     <span class="bl tray-label"><b>எடைக்கற்கள்</b></span>
-    <div class="tray" id="wts"><div class="chip wchip" data-val="3"><span class="opt">A</span><span class="wt">3 kg</span></div><div class="chip wchip" data-val="4"><span class="opt">B</span><span class="wt">4 kg</span></div><div class="chip wchip" data-val="5"><span class="opt">C</span><span class="wt">5 kg</span></div><div class="chip wchip" data-val="6"><span class="opt">D</span><span class="wt">6 kg</span></div></div>
+    <div class="tray" id="wts"><div class="chip wchip" data-val="3"><span class="opt">A</span><span class="wt">3 கிலோ</span></div><div class="chip wchip" data-val="4"><span class="opt">B</span><span class="wt">4 கிலோ</span></div><div class="chip wchip" data-val="5"><span class="opt">C</span><span class="wt">5 கிலோ</span></div><div class="chip wchip" data-val="6"><span class="opt">D</span><span class="wt">6 கிலோ</span></div></div>
     <div class="panel"><div class="bal" id=b4><div class="arm"><div class="pan"><div class="drop" id="pan" style="min-width:120px;min-height:56px"></div></div><div class="pan"><span class="emo big">🍉</span></div></div><div class="fulc"></div></div></div>
     <div class="actions">
       <button type="button" class="btn ghost" id="btnReset"><b>மீண்டும் தொடங்கு</b></button>
@@ -115,7 +114,7 @@ svg text{font-family:"Noto Sans Tamil","Nirmala UI","Latha","Tamil Sangam MN",Ar
   <section class="question-right" aria-label="வினா">
     <div class="qtag">வினா 11</div>
     <div class="bi topic"><span class="ms">அளவியல்: பொருண்மை (தராசைக் கொண்டு காரணம் காணுதல்)</span></div>
-<div class="bi qtext"><span class="ms">ஒவ்வொரு தராசிலும், இடப்புறத்தில் உள்ள பொருட்களின் எடையும் வலப்புறத்தில் உள்ள பொருட்களின் எடையும் சமமாகும்.<br><br>தர்பூசணியின் எடை எவ்வளவு?</span></div>
+<div class="bi qtext"><span class="ms">ஒவ்வொரு தராசிலும், இடப்புறத்தில் உள்ள பொருட்களின் எடையும் வலப்புறத்தில் உள்ள பொருட்களின் எடையும் சமமாகும்.<br><br><span style="font-size:1.6em;vertical-align:middle">🍉</span> எடை எவ்வளவு?</span></div>
 <div class="bi instr"><span class="ms">மேலே உள்ள மூன்று தராசுகளையும் கவனிக்கவும். ஓர் எடைக்கல்லை இழுத்து கீழே உள்ள தராசின் இடப்புறத் தட்டில் வைக்கவும். பிறகு “விடையைச் சரிபார்” பொத்தானைச் சொடுக்கி, தராசு சமநிலையில் உள்ளதா எனப் பார்க்கவும்.</span></div>
   </section>
   <div class="modal" id="modal" hidden role="dialog" aria-modal="true">

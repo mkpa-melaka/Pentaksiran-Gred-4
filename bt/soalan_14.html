@@ -74,23 +74,23 @@ input[type=range]{width:100%;accent-color:var(--accent);height:28px;cursor:point
 .panel-h{font-size:14px;margin-bottom:6px}
 
 
-html,body,.chip,.btn,.choice{font-family:"Noto Sans Tamil","Nirmala UI","Latha","Tamil Sangam MN","Tamil MN",Arial,sans-serif}
+html,body,.chip,.btn,.choice{font-family:"Noto Sans Tamil","Nirmala UI","Latha","Tamil Sangam MN",Arial,sans-serif}
 svg text{font-family:"Noto Sans Tamil","Nirmala UI","Latha","Tamil Sangam MN",Arial,sans-serif}
-.bi .ms{font-weight:400;line-height:1.75}
-.bi.qtext .ms{font-size:1.02em}
+.bi .ms{font-weight:400}
+.bi.qtext .ms{font-size:1.08em;line-height:1.65}
 .topic .ms{font-weight:700}
-.bl{line-height:1.35}
-.btn{padding:10px 18px;font-size:15px}
-.key{flex:0 1 230px}.key div{white-space:nowrap}.pt-l{width:92px}
+.bi.instr .ms{line-height:1.6}
+.btn{padding:10px 20px;font-size:16px}
 
 
 .picto{border:2px solid #333;border-radius:6px;padding:8px 12px;background:#fff;flex:1 1 260px}
 .pt-title{text-align:center;margin-bottom:6px}
 .pt-row{display:flex;align-items:center;gap:10px;padding:3px 0}
-.pt-l{width:62px;flex:none;font-size:13px}
+.pt-l{min-width:62px;flex:none;font-size:13px}
 .pt-i{font-size:24px;letter-spacing:2px;line-height:1.2;word-break:break-all}
 .key{display:flex;flex-direction:column;gap:6px;font-size:14px;padding:8px;flex:0 1 170px}
 .key div{display:flex;align-items:center;gap:6px;font-weight:700}
+.kq{white-space:nowrap}
 .dgt{width:58px;min-width:58px;height:58px}
 .stp{display:inline-flex;border:2px solid var(--accent);border-radius:10px;overflow:hidden}
 .stp button{border:0;background:var(--accent-soft);color:var(--accent);font-size:18px;font-weight:700;padding:6px 12px;cursor:pointer}
@@ -108,7 +108,7 @@ svg text{font-family:"Noto Sans Tamil","Nirmala UI","Latha","Tamil Sangam MN",Ar
  <div class="pt-row"><span class="pt-l"><span class="bl "><b>பேரிக்காய்</b></span></span><span class="pt-i">🍐🍐🍐</span></div>
  <div class="pt-row"><span class="pt-l"><span class="bl "><b>வாழைப்பழம்</b></span></span><span class="pt-i">🍌🍌🍌🍌</span></div>
 </div>
-<div class="key"><span class="bl "><b>குறிப்பு</b></span><div>🍎 = 10 <span class="bl "><b>ஆப்பிள்கள்</b></span></div><div>🍐 = 10 <span class="bl "><b>பேரிக்காய்கள்</b></span></div><div>🍌 = 10 <span class="bl "><b>வாழைப்பழங்கள்</b></span></div></div></div>
+<div class="key"><span class="bl "><b>குறிப்பு</b></span><div><span class="kq">🍎  10</span> <span class="bl "><b>ஆப்பிள்களைப் பிரதிநிதிக்கிறது.</b></span></div><div><span class="kq">🍐  10</span> <span class="bl "><b>பேரிக்காய்களைப் பிரதிநிதிக்கிறது.</b></span></div><div><span class="kq">🍌  10</span> <span class="bl "><b>வாழைப்பழங்களைப் பிரதிநிதிக்கிறது.</b></span></div></div></div>
     <div class="panel"><div class="panel-h"><b>அ.</b> <span class="bl "><b>திங்கட்கிழமையில் விற்கப்பட்ட பழங்கள்</b></span></div>
       <div class="tray" id="dg" style="min-height:52px"><div class="chip" data-clone="1" data-val="0">0</div><div class="chip" data-clone="1" data-val="1">1</div><div class="chip" data-clone="1" data-val="2">2</div><div class="chip" data-clone="1" data-val="3">3</div><div class="chip" data-clone="1" data-val="4">4</div><div class="chip" data-clone="1" data-val="5">5</div><div class="chip" data-clone="1" data-val="6">6</div><div class="chip" data-clone="1" data-val="7">7</div><div class="chip" data-clone="1" data-val="8">8</div><div class="chip" data-clone="1" data-val="9">9</div></div>
       <div class="row" style="margin-top:8px"><div class="drop dgt" id="h"></div><div class="drop dgt" id="t"></div><div class="drop dgt" id="o"></div><span class="bl "><b>பழங்கள்</b></span></div></div>
@@ -126,7 +126,7 @@ svg text{font-family:"Noto Sans Tamil","Nirmala UI","Latha","Tamil Sangam MN",Ar
   <section class="question-right" aria-label="வினா">
     <div class="qtag">வினா 14</div>
     <div class="bi topic"><span class="ms">தரவு: படக்குறிவரைவு</span></div>
-<div class="bi qtext"><span class="ms">பழக்கடை உரிமையாளர் ஒருவர் திங்கட்கிழமையன்று விற்கப்பட்ட ஆப்பிள்கள், பேரிக்காய்கள், வாழைப்பழங்களின் எண்ணிக்கையைக் கணித்து வைத்துள்ளார்.<br><br><b>அ.</b> திங்கட்கிழமையில் விற்கப்பட்ட பழங்களின் எண்ணிக்கை எவ்வளவு?<br><br><b>ஆ.</b> அவ்வுரிமையாளர், “திங்கட்கிழமையைவிட செவ்வாய்க்கிழமையன்று ஆப்பிள் பழங்களை இரண்டு மடங்காக விற்றேன்” எனக் கூறினார். செவ்வாய்க்கிழமையன்று அவர் விற்ற ஆப்பிள் பழங்களின் எண்ணிக்கை எவ்வளவு?</span></div>
+<div class="bi qtext"><span class="ms">பழக்கடை உரிமையாளர் ஒருவர் திங்கட்கிழமையன்று விற்கப்பட்ட ஆப்பிள்கள், பேரிக்காய்கள், வாழைப்பழங்களின் எண்ணிக்கையைக் கணித்து வைத்துள்ளார்.<br><br><b>அ.</b> திங்கட்கிழமையில் விற்கப்பட்ட பழங்களின் எண்ணிக்கை எவ்வளவு?<br><br><b>ஆ.</b> அவ்வுரிமையாளர், “திங்கட்கிழமையைவிட செவ்வாய்க்கிழமையன்று ஆப்பிள் பழங்களை இரண்டு மடங்காக விற்றேன்”, எனக் கூறினார். செவ்வாய்க்கிழமையன்று அவர் விற்ற ஆப்பிள் பழங்களின் எண்ணிக்கை எவ்வளவு ?</span></div>
 <div class="bi instr"><span class="ms"><b>அ:</b> இலக்க அட்டைகளை இழுத்துக் கட்டங்களில் வைத்து விடையை உருவாக்கவும்.<br><b>ஆ:</b> (தேவைப்பட்டால்) + பொத்தானைச் சொடுக்கி செவ்வாய்க்கிழமைக்கான ஆப்பிள்களை வரையவும். பின்னர் விடையை இழுத்து விடைக் கட்டத்தில் வைக்கவும்.</span></div>
   </section>
   <div class="modal" id="modal" hidden role="dialog" aria-modal="true">
