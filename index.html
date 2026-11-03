@@ -38,6 +38,8 @@ h1{margin:6px 0 2px;font-size:clamp(26px,5vw,38px);line-height:1.1}
 .ck{display:none;margin-top:4px;font-size:12px;color:#1e7e34}.it .ck i{color:#3c7a4f}
 .it.done .ck{display:block}
 @media (prefers-reduced-motion:reduce){.bar span{transition:none}}
+.lang-row.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:640px){.lang-row.two{grid-template-columns:1fr}}
 .ft{text-align:center;font-size:12px;color:#566074}
 </style></head><body><div class="w">
 <header class="hd">
@@ -46,6 +48,13 @@ h1{margin:6px 0 2px;font-size:clamp(26px,5vw,38px);line-height:1.1}
   <p class="h2">Sekolah Rendah Negeri Melaka<i>Melaka State Primary Schools</i></p>
   <div class="dw"><span class="ic">BM | BI</span><span class="dt"><b>Naskah Dwibahasa: Bahasa Melayu &amp; Bahasa Inggeris</b><i>Bilingual Set: Malay &amp; English</i></span></div>
 </header>
+<nav class="lang subj" aria-label="Pilih subjek / Choose a subject">
+  <div class="lang-h"><b>Pilih subjek</b> <i>/ Choose a subject</i></div>
+  <div class="lang-row two">
+    <a class="lb on" aria-current="page" href="./"><span class="lk">🔢</span><span class="lt"><b>Matematik</b><i>Mathematics</i></span></a>
+    <a class="lb" href="sains/"><span class="lk">🔬</span><span class="lt"><b>Sains</b><i>Science</i></span></a>
+  </div>
+</nav>
 <nav class="lang" aria-label="Pilih versi bahasa / Choose a language version">
   <div class="lang-h"><b>Pilih versi bahasa</b> <i>/ Choose a language version</i></div>
   <div class="lang-row">
